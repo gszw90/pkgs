@@ -3,10 +3,12 @@ package message
 const (
 	CodeSuccess  = 200
 	CodeFail     = 400
+	CodeUnauthorized = 401
 	CodeNotFound = 404
 
 	MsgSuccess  = "success"
 	MsgFail     = "fail"
+	MsgUnauthorized = "unauthorized"
 	MsgNotFound = "not found"
 )
 
@@ -48,4 +50,8 @@ func NotFoundMessage(msg string, data interface{}) Message {
 		msg = MsgNotFound
 	}
 	return NewMessage(CodeNotFound, msg, data)
+}
+
+func UnauthorizedMessage() Message {
+	return NewMessage(CodeUnauthorized, MsgUnauthorized, nil)
 }
