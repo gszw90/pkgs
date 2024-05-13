@@ -23,7 +23,7 @@ func (l *TimeLock) TryLockWithTimeout(t time.Duration) (ok bool) {
 			ok = true
 			break
 		}
-		time.Sleep(time.Millisecond * 100)
+		time.Sleep(time.Millisecond * 10)
 		mils -= 100
 	}
 	return
